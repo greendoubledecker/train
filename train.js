@@ -1,9 +1,9 @@
 class Train{
-  constructor(tracks, speed, length){
+  constructor(tracks, speed, length, startingIndex){
     //this.cars = [];
     this.tracks = tracks;
     this.speed = speed;
-    this.index = 0;
+    this.index = startingIndex;
     this.length = length;
   }
   update(){
