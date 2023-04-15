@@ -1,17 +1,20 @@
-class Track{
-  constructor(trackLength){
+class Track {
+  constructor(trackLength, trackWidth) {
+    this.trackWidth = trackWidth;
     this.points = [];
     this.trackLength = trackLength;
-    for (let i = 0; i < this.trackLength; i++){
-      this.points.push(createVector(noise(i * 0.01) * 100, noise((i + 1000) * 0.01) * 100));
+    for (let i = 0; i < this.trackLength; i++) {
+      this.points.push(
+        createVector(noise(i * 0.005) * 150, noise((i + 1000) * 0.005) * 125)
+      );
     }
     //console.log(this.points);
   }
-  display(){
-    for (let i = 0; i < this.points.length; i++) {
-      fill(100);
-      noStroke();
-      rect(this.points[i].x, this.points[i].y, 1, 1);
+  display() {
+   stroke(100);
+    for (let i = 1; i < this.points.length; i++) { 
+      strokeWeight(this.trackWidth);
+      line(this.points[i-1].x, this.points[i-1].y, this.points[i].x, this.points[i].y);
     }
   }
-}  
+}
